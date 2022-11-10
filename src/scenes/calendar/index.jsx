@@ -95,15 +95,22 @@ const Calendar = () => {
               listPlugin,
             ]}
             headerToolbar={{
-              left: "prev, next day",
+              left: "prev,next today",
               center: "title",
-              right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
             initialView="dayGridMonth"
             editable={true}
             selectable={true}
             selectMirror={true}
             dayMaxEvents={true}
+            select={handleDateClick}
+            eventClick={handleEventClick}
+            eventsSet={(events) => setCurrentEvents(events)}
+            initialEvents={[
+              { id: "1234", title: "Eva's Birthday", date: "2022-11-01" },
+              { id: "1235", title: "Anna's Birthday", date: "2022-11-24" },
+            ]}
           />
         </Box>
       </Box>
