@@ -1,5 +1,3 @@
-import React from "react";
-import Header from "../../components/Header";
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
@@ -8,10 +6,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
+import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
-import BarChart from "../../components/Barchart";
 import GeographyChart from "../../components/GeographyChart";
-import PieChart from "../../components/PieChart";
+import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
@@ -21,8 +19,10 @@ const Dashboard = () => {
 
   return (
     <Box m="20px">
+      {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your Dashboard" />
+        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+
         <Box>
           <Button
             sx={{
@@ -38,13 +38,15 @@ const Dashboard = () => {
           </Button>
         </Box>
       </Box>
+
+      {/* GRID & CHARTS */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* Row 1 */}
+        {/* ROW 1 */}
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -72,9 +74,9 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="435,567"
+            title="431,225"
             subtitle="Sales Obtained"
-            progress="0.5"
+            progress="0.50"
             increase="+21%"
             icon={
               <PointOfSaleIcon
@@ -91,10 +93,10 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,367"
+            title="32,441"
             subtitle="New Clients"
             progress="0.30"
-            increase="+15%"
+            increase="+5%"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -110,9 +112,9 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,345,768"
+            title="1,325,134"
             subtitle="Traffic Received"
-            progress="0.85"
+            progress="0.80"
             increase="+43%"
             icon={
               <TrafficIcon
@@ -121,6 +123,7 @@ const Dashboard = () => {
             }
           />
         </Box>
+
         {/* ROW 2 */}
         <Box
           gridColumn="span 8"
@@ -130,7 +133,7 @@ const Dashboard = () => {
           <Box
             mt="25px"
             p="0 30px"
-            display="flex"
+            display="flex "
             justifyContent="space-between"
             alignItems="center"
           >
@@ -147,7 +150,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,456,876
+                $59,342.32
               </Typography>
             </Box>
             <Box>
@@ -235,7 +238,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $52,456 revenue generated
+              $48,352 revenue generated
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
@@ -252,11 +255,25 @@ const Dashboard = () => {
           >
             Sales Quantity
           </Typography>
-          <Box
-            height="250px"
-            mt="-20px"
-          >
+          <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
+          </Box>
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px" }}
+          >
+            Geography Based Traffic
+          </Typography>
+          <Box height="200px">
+            <GeographyChart isDashboard={true} />
           </Box>
         </Box>
       </Box>
