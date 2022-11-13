@@ -11,7 +11,6 @@ import TrafficIcon from "@mui/icons-material/Traffic";
 import LineChart from "../../components/LineChart";
 import BarChart from "../../components/Barchart";
 import GeographyChart from "../../components/GeographyChart";
-import PieChart from "../../components/PieChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
@@ -44,7 +43,7 @@ const Dashboard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* Row 1 */}
+        {/* ROW 1 */}
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -252,11 +251,21 @@ const Dashboard = () => {
           >
             Sales Quantity
           </Typography>
-          <Box
-            height="250px"
-            mt="-20px"
-          >
+          <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
+          </Box>
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+        >
+          <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
+            Geography Based Traffic
+          </Typography>
+          <Box height="200px">
+            <GeographyChart isDashboard={true} />
           </Box>
         </Box>
       </Box>
