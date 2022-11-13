@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Complete ADMIN Dashboard
+
+This is pet project showing example of Dashborad.
+
+We used the next libraries for this project:
+1. [Create React App](https://github.com/facebook/create-react-app).
+2. [Material UI](https://mui.com/material-ui/getting-started/overview/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
